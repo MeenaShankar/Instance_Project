@@ -1,0 +1,67 @@
+<html>
+
+<body>
+<center><h1>Azure instance details</h1></center>
+   <table border="2">
+     <tr><th rowspan="2">S.No</th>
+       <th rowspan="2">Name</th>
+      <th rowspan="2">ID</th>
+      <th rowspan="2">Type</th>
+      <th rowspan="2">Storage URI</th>
+      <th rowspan="2">Vm Size</th>
+      <th rowspan="2">Location</th>
+      <th colspan="3">Network Profile</th>
+      <th colspan="3">Os Profile</th>
+         <th colspan="5">storage</th>
+         <th colspan="2">os Disk</th>
+         <th rowspan="2">vmId</th>
+         <th rowspan="2">zone</th>
+     </tr>
+     <tr>
+         <th>storage account type</th>
+         <th>Primary</th>
+         <th>Resource Group</th>
+         <th>admin password</th>
+         <th>admin Username</th>
+         <th>computer Name</th>
+         <th>exactversion</th>
+         <th>offer</th>
+         <th>publisher</th>
+         <th>sku</th>
+         <th>version</th>
+         <th>Name</th>
+         <th>Os Type</th>
+
+
+     </tr>
+      {%for i in range(0, len)%}
+        <tr><td>{{i+1}}</td>
+          <td>{{a[i]["name"]}}</td>
+          <td>{{a[i]["id"]}}</td>
+          <td>{{a[i]["type"]}}</td>
+          <td>{{a[i]["diagnosticsProfile"]["bootDiagnostics"]["storageUri"]}}</td>
+          <td>{{a[i]["hardwareProfile"]["vmSize"]}}</td>
+          <td>{{a[i]["location"]}}</td>
+          <td>{{a[0]["storageProfile"]["osDisk"]["managedDisk"]["storageAccountType"]}}</td>
+          <td>{{a[i]["networkProfile"]["networkInterfaces"][0]["primary"]}}</td>
+          <td>{{a[i]["networkProfile"]["networkInterfaces"][0]["resourceGroup"]}}</td>
+          <td>{{a[i]["osProfile"]["adminPassword"]}}</td>
+          <td>{{a[i]["osProfile"]["adminUsername"]}}</td>
+          <td>{{a[i]["osProfile"]["computerName"]}}</td>
+          <td>{{a[i]['storageProfile']["imageReference"]["exactVersion"]}}</td>
+           <td>{{a[i]['storageProfile']["imageReference"]["offer"]}}</td>
+           <td>{{a[i]["storageProfile"]["imageReference"]["publisher"]}}</td>
+           <td>{{a[i]["storageProfile"]["imageReference"]["sku"]}}</td>
+           <td>{{a[i]["storageProfile"]["imageReference"]["version"]}}</td>
+          <td>{{a[i]["storageProfile"]["osDisk"]["name"]}}</td>
+           <td>{{a[i]["storageProfile"]["osDisk"]["osType"]}}</td>
+           <td>{{a[i]["vmId"]}}</td>
+           <td>{{a[i]["zone"]}}</td>
+
+
+
+        </tr>
+       {%endfor%}
+   </table>
+</body>
+</html>
