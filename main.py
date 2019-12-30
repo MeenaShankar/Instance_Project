@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('try3.html')
+    return render_template('front.html')
 
 #select an account
 @app.route('/account', methods=['POST'])
